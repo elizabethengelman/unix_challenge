@@ -1,5 +1,7 @@
+#!/usr/bin/env ruby
+
 def cat(files)
-  puts "ARGV: #{ARGV.inspect}"
+  # puts "ARGV: #{ARGV.inspect}"
   files.each do |file|
 
     if File.exist?(file)
@@ -7,6 +9,8 @@ def cat(files)
       until input_file.eof
         puts input_file.read(100)
       end
+    elsif file == "-"
+      standard_input
     else
        abort "This file doesn't exist"
     end
@@ -25,13 +29,20 @@ def numbered_cat(file)
   end
 end
 
-if ARGV.first == "-" || ARGV.empty?
-  while true
+def standard_input 
+  while !$stdin.eof?
     input = $stdin.gets
     puts input
   end
+end
+
+
+if ARGV.empty?
+ standard_input
 elsif ARGV.first == "-n"
   numbered_cat(ARGV[1])
 else
   cat(ARGV)
 end
+
+
