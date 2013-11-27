@@ -16,10 +16,9 @@ end
 def numbered_cat(file)
   if File.exist?(file)
     input_file = File.open(file, 'r')
-    counter = 0
-    until input_file.eof
-      puts "#{counter}  " + input_file.readline
-      counter += 1
+    file_array = input_file.read.split("\n")
+    file_array.each_with_index do |item, index|
+      puts "#{index + 1} " + item
     end
   else
      abort "This file doesn't exist"
