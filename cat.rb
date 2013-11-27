@@ -1,4 +1,5 @@
 def cat(files)
+  puts "ARGV: #{ARGV.inspect}"
   files.each do |file|
     if File.exist?(file)
       input_file = File.open(file, 'r')
@@ -11,4 +12,11 @@ def cat(files)
   end
 end
 
-cat(ARGV)
+if ARGV.first == "-" || ARGV.empty?
+  while true
+    input = $stdin.gets
+    puts input
+  end
+else
+  cat(ARGV)
+end
