@@ -5,7 +5,8 @@ def cat(files)
       opened_file = input_file.read
       puts opened_file
     else
-      raise ArgumentError, "This file doesn't exist"
+      # $stderr.write("This file doesn't exist")
+       abort "This file doesn't exist"
     end
   end
 end
