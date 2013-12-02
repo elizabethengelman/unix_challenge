@@ -1,0 +1,1 @@
+The Unix Challenge was an exercise that I completed while pair programming to recreate the Unix command ```cat``` in Ruby. This challenge went through several iterations, including allowing the app to read a single file, read several files, handle errors, increase proficiency and performance, reading from the stdin as well as prefix each line with a number.
